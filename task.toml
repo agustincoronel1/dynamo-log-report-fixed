@@ -12,9 +12,9 @@ artifact_type = ["text_or_log_file", "generated_output_artifact"]
 expert_time_estimate_hours = 0.3
 model_tested = "GPT-5.4"
 agent_tested = "Terminus-2"
-difficulty_explanation = "Parse a small access log and emit summary stats."
-solution_explanation = "Read the log, count requests/unique IPs, find the top path."
-verification_explanation = "Check the report file."
+difficulty_explanation = "Parse a small Apache-style access log and calculate request, client, and path summary statistics."
+solution_explanation = "Read each non-empty log entry, count the total requests and distinct client IP addresses, extract request paths, identify the most frequent path, and write the results to /app/report.json."
+verification_explanation = "Run pytest tests that validate the JSON structure and the exact expected values for total_requests, unique_ips, and top_path, then write reward.txt and ctrf.json to /logs/verifier/."
 
 [verifier]
 timeout_sec = 120.0
